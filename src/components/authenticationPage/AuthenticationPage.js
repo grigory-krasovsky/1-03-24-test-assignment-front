@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import {useAuthenticateMutation} from "../../api/authentication";
-import {authProcess, loginStart} from "../../redux/slices/authSlice";
+import {authProcess} from "../../redux/slices/authSlice";
 
 const AuthenticationPage = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate(); // Initialize useNavigate hook
+    const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 

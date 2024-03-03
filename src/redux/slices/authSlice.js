@@ -25,14 +25,13 @@ const authSlice = createSlice({
 });
 
 export const authProcess = (dispatch, result, navigate) => {
-    debugger
     if (result.status==='pending') {
         dispatch(loginStart());
     } else if (result.status==='fulfilled') {
         dispatch(loginSuccess(result.data.jwt));
         navigate("/");
     } else {
-        dispatch(loginFailure());
+        dispatch(loginFailure(result.error));
     }
 }
 
