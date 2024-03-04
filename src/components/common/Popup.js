@@ -1,6 +1,24 @@
-import {Button, Checkbox, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
+import {
+    Box,
+    Button,
+    Checkbox,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    FormControlLabel,
+    TextField
+} from "@mui/material";
 
-export const Popup = ({initialState, changeUserFormHandlers, title, open, setOpen, handleSave}) => {
+export const Popup = ({
+                          initialState,
+                          changeUserFormHandlers,
+                          title,
+                          open,
+                          setOpen,
+                          handleSave,
+                          additionalComponents
+                      }) => {
 
     const getInputComponent = (key, value, index) => {
 
@@ -16,17 +34,39 @@ export const Popup = ({initialState, changeUserFormHandlers, title, open, setOpe
                 onChange={changeUserFormHandlers.changeUserFormString}
             />
         } else if (typeof value === 'boolean') {
-            return <Checkbox id={key} checked={value} onChange={changeUserFormHandlers.changeUserFormBoolean} />
+            return <Box
+                key={index}>
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            id={key}
+                            checked={value}
+                            onChange={changeUserFormHandlers.changeUserFormBoolean}
+                        />}
+                    label={key}
+                />
+            </Box>
         }
     }
 
-    return <Dialog open={open} onClose={() => setOpen(false)}>
+    return <Dialog
+        open={open}
+        onClose={() => setOpen(false)} fullWidth={true}>
         <DialogTitle>{title}</DialogTitle>
         <DialogContent>
             {Object.keys(initialState).map((key, index) => {
                 return getInputComponent(key, initialState[key], index)
             })}
+            {additionalComponents && Array.isArray(additionalComponents) && additionalComponents.map((c, i) => {
+                return <Box
+                    key={i}
+                    marginTop={2}
+                >
+                    {c}
+                </Box>;
+            })}
         </DialogContent>
+
         <DialogActions>
             <Button onClick={handleSave}>save</Button>
             <Button onClick={() => setOpen(false)}>cancel</Button>

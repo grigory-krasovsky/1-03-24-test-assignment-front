@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {useAuthenticateMutation} from "../../api/authentication";
 import {authProcess} from "../../redux/slices/authSlice";
+import {Button, Container, InputLabel, TextField, Typography} from "@mui/material";
 
 const AuthenticationPage = () => {
     const dispatch = useDispatch();
@@ -23,14 +24,35 @@ const AuthenticationPage = () => {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <button type="submit">Login</button>
+        <Container maxWidth="xs">
+            <Typography variant="h2" align="center" gutterBottom>
+                Login
+            </Typography>
+            <form onSubmit={handleSubmit} autoComplete="off">
+                <InputLabel htmlFor="username">Username</InputLabel>
+                <TextField
+                    fullWidth
+                    id={'username'}
+                    margin="normal"
+                    variant="outlined"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <InputLabel htmlFor="password">Password</InputLabel>
+                <TextField
+                    fullWidth
+                    margin="normal"
+                    id={'password'}
+                    type='password'
+                    variant="outlined"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <Button type="submit" variant="contained" color="primary" fullWidth>
+                    Login
+                </Button>
             </form>
-        </div>
+        </Container>
     );
 };
 

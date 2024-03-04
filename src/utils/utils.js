@@ -36,8 +36,11 @@ export const jwtUtils = {
             return "Unable to parse"
         }
     },
-    isAuthorized: (useSelector) => {
-        let token = useSelector(state => state.data.token);
+    isAuthorized: (selector) => {
+        let token = selector(state => state.data.token);
         return !!token
+    },
+    currentRoles: () => {
+        return jwtUtils.parse(jwtUtils.decode()).roles
     }
 }

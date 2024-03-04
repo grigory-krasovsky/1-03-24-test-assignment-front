@@ -4,11 +4,14 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 
 export const GenericTableComponent = ({data, deleteButton, deleteButtonFunction}) => {
+
     return data && data.length > 0 && <Table>
         <TableHead>
             <TableRow>
                 {Object.keys(data[0]).map(key => (
-                    <TableCell key = {uuidv4()} align={'center'}>{key.toUpperCase()}</TableCell>
+                    <TableCell key = {uuidv4()} align={'center'} style={{ fontWeight: 'bold' }}>
+                        {key.toUpperCase()}
+                    </TableCell>
                 ))}
                 {deleteButton && <TableCell align={'center'} width={'10%'}/>}
             </TableRow>

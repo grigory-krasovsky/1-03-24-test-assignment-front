@@ -13,7 +13,6 @@ const authApi = api.injectEndpoints({
         }),
         deleteUser: build.mutation({
             query: ({id}) => {
-                debugger
                 return {
                     url: `api/users/${id}`,
                     method: 'DELETE',
@@ -23,7 +22,6 @@ const authApi = api.injectEndpoints({
         }),
         addUser: build.mutation({
             query: ({body}) => {
-                debugger
                 return {
                     url: `api/users`,
                     method: 'POST',

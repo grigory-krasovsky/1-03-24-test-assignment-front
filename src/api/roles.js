@@ -5,11 +5,11 @@ const authApi = api.injectEndpoints({
         getRoles: build.query({
             query: () => {
                 return {
-                    url: 'api/users',
+                    url: 'api/roles',
                     method: 'GET'
                 }
             },
-            providesTags: ['users']
+            providesTags: ['roles']
         }),
     })
 })
