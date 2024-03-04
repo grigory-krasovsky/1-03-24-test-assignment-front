@@ -15,7 +15,7 @@ const authSlice = createSlice({
         loginSuccess(state, action) {
             state.loading = false;
             state.token = action.payload;
-            localStorage.setItem('jwt', action.payload); // Store token in localStorage
+            localStorage.setItem('jwt', action.payload);
         },
         loginFailure(state, action) {
             state.loading = false;
@@ -29,7 +29,7 @@ export const authProcess = (dispatch, result, navigate) => {
         dispatch(loginStart());
     } else if (result.status==='fulfilled') {
         dispatch(loginSuccess(result.data.jwt));
-        navigate("/");
+        navigate("/home");
     } else {
         dispatch(loginFailure(result.error));
     }
