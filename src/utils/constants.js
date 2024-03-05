@@ -2,14 +2,14 @@ export const ROLES = {
     ADMIN: 'ADMIN',
     TEACHER: 'TEACHER',
     STUDENT: 'STUDENT',
-    DIRECTOR: 'DIRECTOR'
+    DIRECTOR: 'DIRECTOR',
+    REPORTS: 'REPORTS'
 }
 
 export const GRADES = {
-    A: 'A',
-    B: 'B',
-    C: 'C',
-    D: 'D',
-    E: 'E',
-    F: 'F'
+    1: '1',
+    2: '2',
+    3: '3',
+    4: '4',
+    5: '5',
 }

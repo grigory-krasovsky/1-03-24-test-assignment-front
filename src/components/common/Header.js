@@ -57,6 +57,10 @@ export const Header = () => {
             name: "Student Panel",
             path: "/student-panel"
         },
+        {
+            name: "Report Panel",
+            path: "/reports"
+        },
 
     ]
 
