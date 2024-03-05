@@ -4,3 +4,12 @@ export const ROLES = {
     STUDENT: 'STUDENT',
     DIRECTOR: 'DIRECTOR'
 }
+
+export const GRADES = {
+    A: 'A',
+    B: 'B',
+    C: 'C',
+    D: 'D',
+    E: 'E',
+    F: 'F'
+}

@@ -10,6 +10,7 @@ import {Header} from "./components/common/Header";
 import AdminPanel from "./components/panels/adminPanel/AdminPanel";
 import {Home} from "./components/homePage/Home";
 import DirectorPanel from "./components/panels/director-panel/DirectorPanel";
+import TeacherPanel from "./components/panels/teacherPanel/TeacherPanel";
 
 const content = () => {
     const authorized = jwtUtils.isAuthorized(useSelector);
@@ -20,6 +21,7 @@ const content = () => {
             <Route path="/authentication" element={<AuthenticationPage/>}/>
             <Route path="/admin-panel" element={<AdminPanel/>}/>
             <Route path="/director-panel" element={<DirectorPanel/>}/>
+            <Route path="/teacher-panel" element={<TeacherPanel/>}/>
         </Routes>
     </Router>
 }
