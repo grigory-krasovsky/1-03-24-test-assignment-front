@@ -70,9 +70,6 @@ const AdminContent = () => {
         addUser({body : userForm});
     }
 
-    console.log('roles')
-    console.log(roles)
-
     return <Fragment>
         <div style={{ padding: '20px' }}>
             <Typography variant="h5" component="h2">
@@ -85,7 +82,7 @@ const AdminContent = () => {
                 data={users && users.map(item => ({
                     ...item,
                     role: item.role.map(role => role.displayName)
-                }))}
+                })).map(({ groupResponse, ...item }) => item)}
                 deleteButton={true}
                 deleteButtonFunction={handleDeleteUser}/>}
         />

@@ -14,6 +14,18 @@ const authApi = api.injectEndpoints({
                 return data.sort((a, b) => a.subjectName.localeCompare(b.subjectName));
             }
         }),
+        getGradesForStudent: build.query({
+            query: () => {
+                return {
+                    url: 'api/grades/me',
+                    method: 'GET'
+                }
+            },
+            providesTags: ['grades'],
+            transformResponse: (data) => {
+                return data.sort((a, b) => a.subjectName.localeCompare(b.subjectName));
+            }
+        }),
         rateStudent: build.mutation({
             query: ({body}) => {
                 return {
@@ -30,5 +42,6 @@ const authApi = api.injectEndpoints({
 
 export const {
     useGetGradesQuery,
+    useGetGradesForStudentQuery,
     useRateStudentMutation,
 } = authApi;

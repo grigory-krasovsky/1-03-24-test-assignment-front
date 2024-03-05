@@ -23,7 +23,7 @@ export const GenericTableComponent = ({data, deleteButton, deleteButtonFunction}
                         return <TableCell
                             key = {uuidv4()}
                             align={'center'}>
-                            {item[key].toString()}
+                            {item[key]?.toString()}
                         </TableCell>
                     })}
                     {deleteButton && <TableCell align={'center'} width={'10%'}>

@@ -13,7 +13,7 @@ const authApi = api.injectEndpoints({
             providesTags: ['subjects'],
             transformResponse: (data) => {
                 return data.map(item => {
-                    const students = item.users.filter(user => user.role.some(role => role.displayName === ROLES.STUDENT)).map(i => i.username);
+                    const students = item.users.filter(user => user.role.some(role => role.displayName === ROLES.STUDENT)).map(i => i.groupResponse?.group);
                     const teachers = item.users.filter(user => user.role.some(role => role.displayName === ROLES.TEACHER)).map(i => i.username);
                     delete item.users;
                     return { ...item, students, teachers };

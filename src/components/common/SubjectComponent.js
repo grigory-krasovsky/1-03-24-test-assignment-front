@@ -17,8 +17,9 @@ const SubjectComponent = ({ subjectName, userGradesMap, setCurrentStudentSubject
                     {Object.entries(userGradesMap).map(([user, grades]) => (
                         <TableRow key={user}>
                             <TableCell>{user}</TableCell>
-                            <TableCell>{grades.join(", ")}</TableCell>
-                            <TableCell><Button onClick={() => setCurrentStudentSubject({user, subjectName})}>Rate student</Button></TableCell>
+                            <TableCell>{grades && grades.join(", ")}</TableCell>
+                            {setCurrentStudentSubject &&
+                                <TableCell><Button onClick={() => setCurrentStudentSubject({user, subjectName})}>Rate student</Button></TableCell>}
                         </TableRow>
                     ))}
                 </TableBody>
